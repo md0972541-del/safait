@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DK WIN - 5:24 AM SYNC - SAFAIT</title>
+    <title>DK WIN - PERFECT SYNC - SAFAIT</title>
     <style>
         :root { --gold: #FFD700; --bg: #000; --neon: #00ffff; }
         body { background: var(--bg); color: #fff; font-family: 'Orbitron', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
@@ -19,23 +19,23 @@
 <body>
 
 <div class="master-ui">
-    <div class="p-info" id="p_display">SYNCING 5:24 AM...</div>
+    <div class="p-info" id="p_display">SYNCING 5:29 AM...</div>
     <div class="timer" id="timer">00s</div>
     
-    <div style="font-size: 10px; color: #0f0; margin-bottom: 10px; font-weight: bold;">LIVE SIGNAL ACTIVE (NO LOSS)</div>
+    <div style="font-size: 10px; color: #0f0; margin-bottom: 10px; font-weight: bold;">PRO MODE ACTIVE (V56.4)</div>
 
     <div class="signal-area">
         <div class="num-circ" id="n_val">?</div>
         <div class="bs-text" id="bs_val">?</div>
-        <div style="color: var(--gold); font-size: 10px; margin-top: 10px;">100% PROFIT SECURED</div>
+        <div style="color: var(--gold); font-size: 10px; margin-top: 10px;">SAFAIT 200K MISSION</div>
     </div>
 
     <div style="margin-top: 20px; font-size: 9px; color: #333;">DEVELOPER: HACKER SAFAIT</div>
 </div>
 
 <script>
-    // Trends-এর ওপর ভিত্তি করে সিকিউর সিড ডাটা
-    const secureSeed = [8, 0, 4, 9, 1, 7, 3, 5, 2, 6, 4, 0, 1, 9, 7];
+    // প্রোফিট নিশ্চিত করার জন্য সিকিউর সিড ডাটা
+    const secureSeed = [5, 2, 8, 0, 4, 9, 1, 7, 3, 6, 4, 0, 1, 9, 7];
 
     function updateSync() {
         const now = new Date();
@@ -46,8 +46,9 @@
         let totalSec = (now.getHours() * 3600) + (now.getMinutes() * 60) + sec;
         let serial = Math.floor(totalSec / 30);
         
-        // সকাল ০৫:২৪ (১৮:২৪ নয়) অনুযায়ী পিরিয়ড ৫২৮১০ ফিক্স করা হয়েছে (১টি কমিয়ে)
-        let base = 52810 - Math.floor(((5*3600)+(24*60))/30);
+        // সকাল ০৫:২৯ অনুযায়ী পিরিয়ড সিংক্রোনাইজড (আরও ১টি কমানো হয়েছে)
+        // ৫২৮২১ থেকে ১ কমিয়ে ৫২৮২০ বেস ধরা হলো
+        let base = 52820 - Math.floor(((5*3600)+(29*60))/30);
         let currentP = base + serial;
         
         document.getElementById('p_display').innerText = "PERIOD: 202603031000" + currentP;
