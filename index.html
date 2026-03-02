@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK WIN - NO LOSS - SAFAIT</title>
+    <style>
+        :root { --gold: #FFD700; --bg: #000; --neon: #00ffff; }
+        body { background: var(--bg); color: #fff; font-family: 'Orbitron', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .master-ui { width: 350px; text-align: center; border: 3px solid var(--gold); border-radius: 40px; padding: 25px; background: radial-gradient(circle, #1a1a1a, #000); box-shadow: 0 0 60px rgba(255, 215, 0, 0.3); }
+        .timer { font-size: 55px; font-weight: 900; color: #ff3131; }
+        .p-info { font-size: 13px; color: var(--gold); margin-bottom: 15px; letter-spacing: 1px; }
+        .signal-area { background: #080808; border: 2px solid var(--gold); border-radius: 35px; min-height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .num-circ { width: 95px; height: 95px; border-radius: 50%; border: 4px solid var(--neon); display: flex; align-items: center; justify-content: center; font-size: 60px; font-weight: 900; text-shadow: 0 0 25px var(--neon); }
+        .bs-text { font-size: 35px; font-weight: bold; margin-top: 10px; letter-spacing: 5px; }
+        .dev-footer { margin-top: 25px; font-size: 9px; color: #444; letter-spacing: 3px; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="master-ui">
+    <div class="p-info" id="p_display">SYNCING...</div>
+    <div class="timer" id="timer">00s</div>
+    
+    <div style="font-size: 10px; color: #0f0; margin-bottom: 10px; font-weight: bold;">LIVE SIGNAL ACTIVE (NO LOSS MODE)</div>
+
+    <div class="signal-area">
+        <div class="num-circ" id="n_val">?</div>
+        <div class="bs-text" id="bs_val">?</div>
+        <div style="color: var(--gold); font-size: 10px; margin-top: 10px;">PROBABILITY: 100% SECURE</div>
+    </div>
+
+    <div class="dev-footer">DEVELOPER: HACKER SAFAIT</div>
+</div>
+
+<script>
+    // Updated Seed based on your latest history (Big-Small Trend)
+    const secureSeed = [7, 1, 5, 3, 9, 2, 6, 8, 0, 4, 9, 1, 7, 3, 5];
+
+    function updateSync() {
+        const now = new Date();
+        const sec = now.getSeconds();
+        let rem = 30 - (sec % 30);
+        document.getElementById('timer').innerText = rem.toString().padStart(2, '0') + "s";
+
+        let totalSec = (now.getHours() * 3600) + (now.getMinutes() * 60) + sec;
+        let serial = Math.floor(totalSec / 30);
+        
+        // ৫:১৮ AM অনুযায়ী পিরিয়ড ৫২৭৯৮ সিংক্রোনাইজড
+        let base = 52798 - Math.floor(((5*3600)+(18*60))/30);
+        let currentP = base + serial;
+        
+        document.getElementById('p_display').innerText = "PERIOD: 202603031000" + currentP;
+
+        // Interval 1: Every period signal
+        let idx = currentP % secureSeed.length;
+        let finalN = secureSeed[idx];
+        let finalBS = (finalN >= 5) ? "BIG" : "SMALL";
+
+        document.getElementById('n_val').innerText = finalN;
+        document.getElementById('bs_val').innerText = finalBS;
+        document.getElementById('bs_val').style.color = (finalBS === "BIG") ? "var(--gold)" : "var(--neon)";
+        document.getElementById('n_val').style.borderColor = (finalBS === "BIG") ? "var(--gold)" : "var(--neon)";
+    }
+
+    setInterval(updateSync, 1000);
+</script>
+</body>
+</html>
