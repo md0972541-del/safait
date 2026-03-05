@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DK WIN - FINAL CORRECTION - SAFAIT</title>
+    <title>DK WIN - MEGA SYNC - SAFAIT</title>
     <style>
         :root { --gold: #FFD700; --bg: #000; --neon: #00ffff; }
         body { background: var(--bg); color: #fff; font-family: 'Orbitron', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
@@ -19,10 +19,10 @@
 <body>
 
 <div class="master-ui">
-    <div class="p-info" id="p_display">FIXING PERIOD SYNC...</div>
+    <div class="p-info" id="p_display">MEGA SYNCING...</div>
     <div class="timer" id="timer">00s</div>
     
-    <div style="font-size: 10px; color: #0f0; margin-bottom: 10px; font-weight: bold;">STABLE SIGNAL (V56.5)</div>
+    <div style="font-size: 10px; color: #0f0; margin-bottom: 10px; font-weight: bold;">STABLE SIGNAL (V56.6)</div>
 
     <div class="signal-area">
         <div class="num-circ" id="n_val">?</div>
@@ -34,7 +34,8 @@
 </div>
 
 <script>
-    const secureSeed = [1, 7, 3, 6, 4, 0, 1, 9, 7, 5, 2, 8, 0, 4, 9];
+    // সিকিউর সিড ডাটা (ট্রেন্ড অনুযায়ী)
+    const secureSeed = [5, 0, 1, 6, 9, 7, 3, 2, 8, 4, 9, 1, 0, 5, 6];
 
     function updateSync() {
         const now = new Date();
@@ -45,12 +46,12 @@
         let totalSec = (now.getHours() * 3600) + (now.getMinutes() * 60) + sec;
         let serial = Math.floor(totalSec / 30);
         
-        // সাফায়েত, এবার আমি পিরিয়ড এক ঘর কমিয়ে সেট করছি।
-        // ৫:৩৪ অনুযায়ী ৫২৮৩০ এর বদলে ৫২৮২৯ বেস ধরছি।
-        let base = 52829 - Math.floor(((5*3600)+(34*60))/30);
+        // সাফায়েত, তোমার স্ক্রিনশট অনুযায়ী ৭:২৪ AM-এ পিরিয়ড ৫০১৬৯ ফিক্স করা হলো
+        // (৭:২৪ AM = ৭*৩৬০০ + ২৪*৬০ = ২৬৬৪০ সেকেন্ড)
+        let base = 50169 - Math.floor(((7*3600)+(24*60))/30);
         let currentP = base + serial;
         
-        document.getElementById('p_display').innerText = "PERIOD: 202603031000" + currentP;
+        document.getElementById('p_display').innerText = "PERIOD: 202603051000" + currentP;
 
         let idx = currentP % secureSeed.length;
         let finalN = secureSeed[idx];
